@@ -1,5 +1,3 @@
-// GistList.js
-
 import React from 'react';
 
 const GistList = ({ gists }) => {
@@ -11,7 +9,14 @@ const GistList = ({ gists }) => {
           <li key={gist.id}>
             <h3>{gist.description}</h3>
             <p>Created: {gist.created_at}</p>
-            {/* Display other relevant metadata */}
+            <p>Updated: {gist.updated_at}</p>
+            {gist.language && <p>Language: {gist.language}</p>}
+            {gist.forks && <p>Forks: {gist.forks}</p>}
+            <p>Comments: {gist.comments}</p>
+            <p>Files: {Object.keys(gist.files).length}</p>
+            <p>Public: {gist.public ? 'Yes' : 'No'}</p>
+            <p>Owner: {gist.owner.login}</p>
+            <p>URL: <a href={gist.html_url}>{gist.html_url}</a></p>
           </li>
         ))}
       </ul>
